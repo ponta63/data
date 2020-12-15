@@ -1,0 +1,82 @@
+%#!platex
+\documentclass[
+  platex, dvipdfmx,  % ワークフローは必ず明示的に指定する
+]{nlp2021}
+%#!uplatex
+%\documentclass[uplatex,dvipdfmx]{nlp2021}
+%#!lualatex
+%\documentclass[lualatex]{nlp2021}
+
+
+% パッケージ
+\usepackage{xcolor}  %
+\usepackage{graphicx}  % グラフィックス関連
+\usepackage{pxrubrica}        % ルビ
+\usepackage{url}
+\usepackage[square,numbers]{natbib} % 参考文献のフォントサイズを変更する用
+
+
+%% option 不要な場合はコメントアウト
+\usepackage{bxjalipsum}       % ダミーテキスト
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+    colorlinks=true, 
+    citecolor=blue, 
+    linkcolor=blue,
+    pdfborder={0 0 0},
+}
+\def\bibfont{\small} % 参考文献のフォントサイズを指定
+
+
+% 著者用マクロをここに入れる
+\newcommand{\pkg}[1]{\textsf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\comment}[1]{\textcolor{red}{#1}}
+%%%%%%%
+
+\title{NLP2021-好きなタイトル}
+\author{
+AAA \quad\quad BBB \quad\quad CCC\\
+XXX株式会社 \\
+\texttt{ \{aaa, bbb, ccc\}@linecorp.com }
+}
+  
+  
+\begin{document}
+
+\maketitle
+
+\input{1_intro.tex}
+\input{2_related_work.tex}
+\input{3_experiment.tex}
+\input{4_result.tex}
+\input{5_conclusion.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  ここまでが本文　4ページ以内
+% 参考文献
+\bibliographystyle{junsrt}
+\bibliography{reference}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  ここまでが本文+参考文献　5ページ以内
+
+% 付録(Appendix)
+% 付録を付けない場合は、以下\end{document}以外を全てをコメントアウトする．
+% 本文、参考文献に続けて作成する場合は、必ず \clearpage して新たなページとする
+\clearpage
+% 付録は別ツールで作成して、後で本文PDFに追加する方式でもよい
+\appendix
+% ここ以降はフォーマットを自由に変更可能
+\onecolumn % onecolumnにしたい時の例
+
+\input{10_appendix.tex}
+
+
+\end{document}
